@@ -1,0 +1,89 @@
+{
+  "levelId": "forest_01",
+  "displayName": "Whispering Grove",
+  "world": "forest",
+  "lineArt": "forest_01_lineart.png",
+  "regionMask": "forest_01_regionmask.png",
+  "regionCount": 214,
+  "difficulty": "easy",
+  "regions": [
+    {
+      "id": 14,
+      "targetColor": "#3B7A45",
+      "paletteSlot": 3,
+      "onFillTriggers": [
+        { "type": "animation", "asset": "leaves_grow.riv", "anchor": "region_centroid" },
+        { "type": "sfx", "asset": "leaf_rustle.ogg" },
+        { "type": "chain", "targetRegionId": 22, "delayMs": 800 }
+      ]
+    },
+    {
+      "id": 22,
+      "targetColor": "#5CA86C",
+      "paletteSlot": 4,
+      "onFillTriggers": [
+        { "type": "animation", "asset": "vine_spread.riv", "anchor": "region_centroid" },
+        { "type": "chain", "targetRegionId": 31, "delayMs": 600 }
+      ]
+    },
+    {
+      "id": 31,
+      "targetColor": "#2D5A1E",
+      "paletteSlot": 2,
+      "onFillTriggers": [
+        { "type": "sfx", "asset": "forest_chime.ogg" }
+      ]
+    },
+    {
+      "id": 45,
+      "targetColor": "#8B4513",
+      "paletteSlot": 6,
+      "onFillTriggers": []
+    },
+    {
+      "id": 67,
+      "targetColor": "#87CEEB",
+      "paletteSlot": 1,
+      "onFillTriggers": [
+        { "type": "animation", "asset": "sky_shimmer.riv", "anchor": "region_centroid" }
+      ]
+    }
+  ],
+  "hiddenEvents": [
+    {
+      "id": "fairy_reveal",
+      "condition": {
+        "type": "allRegionsFilled",
+        "regionIds": [14, 22, 31]
+      },
+      "reveal": {
+        "type": "spriteReveal",
+        "asset": "hidden_fairy.riv",
+        "position": [0.62, 0.31]
+      }
+    },
+    {
+      "id": "butterfly_swarm",
+      "condition": {
+        "type": "anyRegionFilled",
+        "regionIds": [45, 67]
+      },
+      "reveal": {
+        "type": "spriteReveal",
+        "asset": "butterfly_swarm.riv",
+        "position": [0.5, 0.5]
+      }
+    }
+  ],
+  "completionRewards": {
+    "coins": 40,
+    "gems": 0,
+    "xp": 25,
+    "wood": 10,
+    "stone": 0,
+    "crystal": 0,
+    "food": 5,
+    "gold": 0
+  },
+  "weatherSequence": ["morning", "afternoon", "sunset"]
+}

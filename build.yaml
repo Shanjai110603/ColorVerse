@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      drift_dev:
+        options:
+          generate_connect_constructor: false
+          scoped_dart_components: true
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - type=lint
+      json_serializable:
+        options:
+          explicit_to_json: true

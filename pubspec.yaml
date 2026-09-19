@@ -1,0 +1,61 @@
+name: colorverse
+description: "ColorVerse — A mobile coloring-adventure game"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Game engine (capped for Dart 3.10 compat)
+  flame: ^1.35.1
+
+  # Image decoding for ID-mask (pure Dart, runs in isolate)
+  image: ^4.5.2
+
+  # Animation & Audio
+  rive: ^0.13.0
+  flame_audio: ^2.10.0
+
+  # Local database
+  drift: ^2.22.1
+  drift_flutter: ^0.2.4
+  sqlite3_flutter_libs: any
+
+  # Model serialization
+  freezed_annotation: any
+  json_annotation: any
+
+  # Settings / small key-value storage
+  shared_preferences: any
+
+  # File paths
+  path_provider: any
+  path: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  # Code generation
+  build_runner: any
+  freezed: any
+  json_serializable: any
+  drift_dev: any
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/worlds.json
+    - assets/sample_levels/forest_01/

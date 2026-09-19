@@ -1,0 +1,45 @@
+{
+  "worlds": [
+    {
+      "id": "forest",
+      "displayName": "Enchanted Forest",
+      "order": 1,
+      "iconAsset": "forest_icon",
+      "levels": [
+        {
+          "levelId": "forest_01",
+          "displayName": "Whispering Grove",
+          "world": "forest",
+          "difficulty": "easy",
+          "regionCount": 214,
+          "requiredXp": 0
+        },
+        {
+          "levelId": "forest_02",
+          "displayName": "Emerald Canopy",
+          "world": "forest",
+          "difficulty": "medium",
+          "regionCount": 350,
+          "requiredXp": 20,
+          "requiredLevelId": "forest_01"
+        }
+      ]
+    },
+    {
+      "id": "mountain",
+      "displayName": "Crystal Peaks",
+      "order": 2,
+      "iconAsset": "mountain_icon",
+      "levels": [
+        {
+          "levelId": "mountain_01",
+          "displayName": "Summit Vista",
+          "world": "mountain",
+          "difficulty": "hard",
+          "regionCount": 420,
+          "requiredXp": 100
+        }
+      ]
+    }
+  ]
+}
