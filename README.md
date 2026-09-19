@@ -47,41 +47,41 @@ ColorVerse follows a clean, reactive architecture separating the **Flutter UI la
 
 ```mermaid
 flowchart TD
-    subgraph UI ["📱 Flutter UI Layer (Riverpod)"]
-        WMS[WorldMapScreen]
-        GS[GameScreen]
-        PB[PaletteBar]
-        SS[SettingsScreen / StoreScreen]
+    subgraph UI ["Flutter UI Layer (Riverpod)"]
+        WMS["WorldMapScreen"]
+        GS["GameScreen"]
+        PB["PaletteBar"]
+        SS["SettingsScreen / StoreScreen"]
     end
 
-    subgraph Engine ["🎮 Flame Engine Layer"]
-        CVG[ColorVerseGame]
-        RMB[RegionMaskBuffer\nO(1) Isolate Hit-Test]
-        FC[FillController]
-        FS[FillState]
-        TQ[TriggerQueue\nAnimations / SFX / Chains]
-        HEE[HiddenEventEvaluator]
+    subgraph Engine ["Flame Engine Layer"]
+        CVG["ColorVerseGame"]
+        RMB["RegionMaskBuffer - O(1) Isolate Hit-Test"]
+        FC["FillController"]
+        FS["FillState"]
+        TQ["TriggerQueue - Animations / SFX / Chains"]
+        HEE["HiddenEventEvaluator"]
     end
 
-    subgraph Storage ["💾 Offline Persistence (Drift SQLite)"]
-        DB[(AppDatabase)]
-        PPD[PlayerProfileDao]
-        LPD[LevelProgressDao]
-        CD[CompanionDao]
-        IRD[IslandResourcesDao]
-        ED[EntitlementDao]
+    subgraph Storage ["Offline Persistence (Drift SQLite)"]
+        DB[("AppDatabase")]
+        PPD["PlayerProfileDao"]
+        LPD["LevelProgressDao"]
+        CD["CompanionDao"]
+        IRD["IslandResourcesDao"]
+        ED["EntitlementDao"]
     end
 
-    WMS -->|Launches level| GS
-    GS -->|Hosts GameWidget| CVG
-    PB -->|Slot selection| CVG
-    CVG -->|Tap event x, y| RMB
-    RMB -->|Resolved region ID| FC
-    FC -->|Valid fill| FS
-    FC -->|Queue triggers| TQ
-    FC -->|Evaluate conditions| HEE
-    CVG -.->|Incremental onPersistFill| LPD
-    PPD & LPD & CD & IRD -.->|Reactive Streams| UI
+    WMS -->|"Launches level"| GS
+    GS -->|"Hosts GameWidget"| CVG
+    PB -->|"Slot selection"| CVG
+    CVG -->|"Tap coordinates"| RMB
+    RMB -->|"Resolved region ID"| FC
+    FC -->|"Valid fill"| FS
+    FC -->|"Queue triggers"| TQ
+    FC -->|"Evaluate conditions"| HEE
+    CVG -.->|"Incremental onPersistFill"| LPD
+    PPD & LPD & CD & IRD -.->|"Reactive Streams"| UI
 ```
 
 ---
